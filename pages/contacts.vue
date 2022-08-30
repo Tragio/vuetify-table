@@ -156,7 +156,8 @@ export default {
         Object.assign(this.contacts[this.editedIndex], this.editedItem)
       } else {
         // New Contact
-        this.editedItem.id = this.contacts.length + 1
+        const lastItem = this.contacts.length - 1
+        this.editedItem.id = this.contacts[lastItem].id + 1
         this.contacts.push(this.editedItem)
       }
       this.close()
