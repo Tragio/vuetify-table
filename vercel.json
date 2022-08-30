@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "src": "/.*",
+      "headers": {
+        "X-Frame-Options": "SAMEORIGIN",
+        "X-XSS-Protection": "1; mode=block",
+        "X-Content-Type-Options": "nosniff",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Feature-Policy": "accelerometer 'none'; camera 'none'; encrypted-media 'none'; fullscreen 'self'; geolocation 'none'; gyroscope 'none'; magnetometer 'none'; microphone 'none'; midi 'none'; payment 'none';  picture-in-picture 'self'; sync-xhr 'none'; usb 'none';"
+      },
+      "continue": true
+    },
+    {
+      "src": "/(.+)(jpg|gif|png|svg|webp|mp4|css|js|woff|woff2)",
+      "headers": { "cache-control": "public, max-age=31536000, immutable" }
+    },
+    { "handle": "filesystem" },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "/404.html"
+    }
+  ],
+  "github": {
+    "silent": true
+  }
+}
