@@ -4,7 +4,6 @@
     :items="contacts"
     :items-per-page="15"
     class="elevation-1"
-    style="margin-top: 100px; margin-left: 300px; margin-right: 300px"
   >
     <template #top>
       <v-toolbar flat color="white">
@@ -86,7 +85,7 @@ export default {
       dialogDelete: false,
       dialog: false,
       headers: [
-        { text: 'ID', value: 'id', width: '6%' },
+        { text: 'ID', value: 'id', width: '10%' },
         { text: 'Name', align: 'left', sortable: true, value: 'name' },
         { text: 'Phone Number', align: 'left', sortable: true, value: 'phone' },
         {
@@ -100,7 +99,7 @@ export default {
           align: 'center',
           value: 'action',
           sortable: false,
-          width: '8%',
+          width: '10%',
         },
       ],
       // Deattach from file, to make reset easier
@@ -175,4 +174,14 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+.v-data-table {
+  margin-top: 100px;
+}
+@media only screen and (min-width: 1265px) {
+  .v-data-table {
+    margin-left: 200px;
+    margin-right: 200px;
+  }
+}
+</style>
